@@ -11,15 +11,15 @@ angular.module('app', ['ui.router']).
 				})
 				.state('about', {
 					url: '/about',
-					templateUrl: 'views/aboutus.html'
+					templateUrl: './app/views/aboutus.html'
 				})
 				.state('contact', {
 					url: '/contact',
-					templateUrl: 'views/contactus.html'
+					templateUrl: './app/views/contactus.html'
 				})
 				.state('ieee_info', {
 					url: '/ieee',
-					templateUrl: 'views/ieee.html'
+					templateUrl: './app/views/ieee.html'
 				});
 
 			$urlRouterProvider.otherwise('/');
