@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('app', ['ui.router']).
+angular.module('app', ['ui.router', 'ngMaterial']).
 	config(['$stateProvider', '$urlRouterProvider', 
 		function($stateProvider, $urlRouterProvider) {
 			$stateProvider
@@ -20,6 +20,11 @@ angular.module('app', ['ui.router']).
 				.state('ieee_info', {
 					url: '/ieee',
 					templateUrl: './app/views/ieee.html'
+				})
+				.state('join', {
+					url: '/join',
+					templateUrl: './app/views/join.html',
+					controller: 'IEEEController'
 				});
 
 			$urlRouterProvider.otherwise('/');

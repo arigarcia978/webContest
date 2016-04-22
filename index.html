@@ -10,66 +10,130 @@
       <link rel="stylesheet" href="app/app.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
 
       <script src="https://code.jquery.com/jquery-2.2.2.min.js" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+
+      <!-- Angular Material Library -->
+      <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
       <script src="app/app.js"></script>
+      <script src = 'app/controllers/controllers.js'></script>
+      <script src = 'app/services/services.js'></script>
       <!-- <script src="./design/materialize_design.js"></script> -->
       
     </head>
-    <body ng-app="app">
-      <header>
-        <nav class = "grey lighten-1">
-          <div class="nav-wrapper">
-            <a href="#/ieee" class="brand-logo">
-              <img class = 'ieee-logo' src="./app/views/img/ieee-logo.png">
-            </a>
-            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-              <li><a href="#/">Home</a></li>
-              <li><a href="#">Join!</a></li>
-              <li><a href="#/contact">Contact Us</a></li>
-              <li><a href="#/about">About Us</a></li>
-            </ul>
-            <ul class="side-nav" id="mobile-demo">
-              <li><a href="#/">Home</a></li>
-              <li><a href="#">Join!</a></li>
-              <li><a href="#/contact">Contact Us</a></li>
-              <li><a href="#/about">About Us</a></li>
-            </ul>
-          </div>
-        </nav>
+    <body ng-app="app" ng-cloak>
+     <!--  FACEBOOK  -->
+     <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.6";
+          fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <!--  Funcion barra fija - se podria agregar a un archivo css y js -->
+        <style type="text/css">
+          .menu-fixed {
+            position:fixed;
+            z-index:1000;
+            top:0;
+            left:0;
+            width:100%;
+          }
+        </style>
+        <script type="text/javascript">
+            $(document).ready(function(){
+              var altura = $('.menu').offset().top;
+              
+              $(window).on('scroll', function(){
+                if ( $(window).scrollTop() > altura ){
+                  $('.menu').addClass('menu-fixed');
+                  $('.navUL').addClass('right');
+                  $('.navUL').removeClass('left');
+                  $('.brand-logo').show();
+                 
+                } else {
+                  $('.menu').removeClass('menu-fixed');
+                  $('.navUL').addClass('left');
+                  $('.navUL').removeClass('right');
+                  $('.brand-logo').hide();               
+                }
+              });
+             
+            });
+        </script>
+
+        <header>
+        <div class="bannerlogo" s>
+          <img style="width:100%; height=100%" src="./app/views/img/logobanner.png" alt="">
+        </div> 
+
+        <div class="menu" >
+          <nav>
+            <div class="nav-wrapper blue darken-3">
+              <a href="#/ieee" class="brand-logo" id="logotitulo" style="display: none;">
+              Tucuman
+              </a>
+              <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+              <ul class="left hide-on-med-and-down navUL">
+                <li><a href="#/">Home</a></li>
+                <li><a href="#/join">Join!</a></li>
+                <li><a href="#/contact">Contact Us</a></li>
+                <li><a href="#/about">About Us</a></li>
+              </ul>
+              <ul class="side-nav" id="mobile-demo">
+                <li><a href="#/">Home</a></li>
+                <li><a href="#/join">Join!</a></li>
+                <li><a href="#/contact">Contact Us</a></li>
+                <li><a href="#/about">About Us</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
       </header>
-      
+
       <main>
         <ui-view></ui-view>
       </main>
 
-      <footer class="page-footer">
-          <div class="container">
+        s<footer class="page-footer  blue darken-3">
+          <div class="container ">
             <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              <div class="col l4 s12">
+                <h5 class="white-text">IEEE</h5>
+                <p class="grey-text text-lighten-4">
+                IEEE es la asociación profesional más grande del mundo dedicada al avance de la innovación tecnológica y excelencia en beneficio de la humanidad.
+                Para conocer más, también visite <a href="www.ieee.org" class="orange-text"> WebSite IEEE</a>
+                </p>
               </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                </ul>
+              <div class="col l4  s12">
+                <h5 class="white-text">Follow Us</h5>
+                  <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FRama.Estudiantil.IEEE.Tucuman%2F%3Ffref%3Dts&tabs=timeline&width=300&height=250&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="300" height="250" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+                  <br>
+                  <img style="width:50px; height:50 px;" src="./app/views/img/fbicon.png" alt="">
+                  <img style="width:50px; height:50 px;"src="./app/views/img/twicon.png" alt="">
+                  <img style="width:50px; height:50 px;"src="./app/views/img/yticon.png" alt="">
+                  <img style="width:50px; height:50 px;"src="./app/views/img/licon.png" alt="">
+              </div>
+              <div class="col l4  s12">
+                <h5 class="white-text">Find Us</h5>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2517.3776982531367!2d-65.21228440984154!3d-26.836463511737705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225c79092d8783%3A0xb103eba49e886fc9!2sUniversidad+Nacional+de+Tucum%C3%A1n!5e0!3m2!1ses-419!2sar!4v1461091032467" width="300" height="300" frameborder="1" style="border:0" allowfullscreen></iframe>
               </div>
             </div>
           </div>
+          
           <div class="footer-copyright">
             <div class="container">
-            © 2014 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            © 2016 Copyright 
             </div>
           </div>
         </footer>
