@@ -17,13 +17,8 @@
 
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
 
-      <!-- Angular Material Library -->
-      <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
-      <script src="app/app.js"></script>
+      <script src = "app/app.js"></script>
       <script src = 'app/controllers/controllers.js'></script>
       <script src = 'app/services/services.js'></script>
       <!-- <script src="./design/materialize_design.js"></script> -->
@@ -52,6 +47,7 @@
         </style>
         <script type="text/javascript">
             $(document).ready(function(){
+              $(".button-collapse").sideNav();
               var altura = $('.menu').offset().top;
               
               $(window).on('scroll', function(){
@@ -68,8 +64,8 @@
                   $('.brand-logo').hide();               
                 }
               });
-             
             });
+
         </script>
 
         <header>
@@ -105,7 +101,7 @@
         <ui-view></ui-view>
       </main>
 
-        s<footer class="page-footer  blue darken-3">
+        <footer class="page-footer  blue darken-3">
           <div class="container ">
             <div class="row">
               <div class="col l4 s12">
