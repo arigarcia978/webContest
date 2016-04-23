@@ -13,10 +13,6 @@ angular.module('app', ['ui.router']).
 					url: '/about',
 					templateUrl: './app/views/aboutus.html'
 				})
-				.state('contact', {
-					url: '/contact',
-					templateUrl: './app/views/contactus.html'
-				})
 				.state('ieee_info', {
 					url: '/ieee',
 					templateUrl: './app/views/ieee.html'
